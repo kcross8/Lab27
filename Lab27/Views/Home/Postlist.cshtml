@@ -1,0 +1,20 @@
+﻿@model RedditPost
+<h2>Welcome to Poor Man's Reddit.</h2>
+<h3>Please search a subreddit name:</h3>
+<form action="Postlist" method="post">
+    <input name="subreddit" type="text" />
+    <input type="submit" />
+</form>
+<br />
+
+@if (Model != null)
+{
+    <div>
+        @for (int i = 0; i < 10; i++)
+        {
+            <p>@Model.data.children[i].data.title</p>
+            <a href="@Model.data.children[i].data.url"><img src="@Model.data.children[i].data.thumbnail" /></a>
+        }
+    </div>
+}
+
